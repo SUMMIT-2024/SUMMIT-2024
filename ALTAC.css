@@ -12,10 +12,11 @@
 body {
     font-family: 'Futura';
     font-weight: bold;
+    background-color: #f4f4f4; /* Fondo gris claro */
 }
 
 header {
-    background-color: rgba(93, 56, 153, 0.9);
+    background-color: rgba(93, 56, 153, 1); /* Más opacidad para un fondo más sólido */
     padding: 10px 0;
     color: #fff;
     position: fixed;
@@ -65,7 +66,7 @@ nav ul li .dropdown {
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     visibility: hidden;
-    min-width: 220px; /* Aumenta el ancho mínimo del dropdown */
+    min-width: 220px;
     padding: 10px 0;
 }
 
@@ -92,8 +93,8 @@ nav ul li:hover .dropdown {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-    z-index: 1500; /* Capa sobre el contenido pero debajo del menú */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1500;
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s ease, visibility 0s linear 0.3s;
@@ -110,6 +111,7 @@ nav.active ~ .overlay {
     background-image: url('Imagenes/AltacFondo.png');
     background-size: cover;
     background-position: center;
+    background-color: #333; /* Fondo gris oscuro si la imagen no carga */
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -144,6 +146,9 @@ nav.active ~ .overlay {
 .content-section {
     margin: 30px;
     text-align: center;
+    background-color: #e0e0e0; /* Fondo gris claro */
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .content-section button {
@@ -170,8 +175,8 @@ nav.active ~ .overlay {
     display: flex;
     justify-content: center;
     text-align: center;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
+    opacity: 0; /* Inicia invisible */
+    transition: opacity 0.5s ease-in-out; /* Transición suave de opacidad */
 }
 
 .content-section #content p {
@@ -288,5 +293,26 @@ nav.active ~ .overlay {
 
     .footer-container img {
         margin-bottom: 20px;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
