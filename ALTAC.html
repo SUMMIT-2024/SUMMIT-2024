@@ -13,11 +13,13 @@
             } else if (type === 'VISION') {
                 content.innerHTML = "<p>We strive to be your most trusted asset. Our continuous improvement philosophy allows us to timely respond to your local and multijurisdictional needs. With a responsive multidisciplinary organizational structure and personalized comprehensive services, ALTAC International leverages its global reach to add value in every interaction.</p>";
             }
+            // Mostrar el contenido después de actualizar el innerHTML
+            content.style.opacity = '1';
             let paragraph = content.querySelector('p');
             if (paragraph) {
-                paragraph.style.animation = 'none';
-                void paragraph.offsetWidth;
-                paragraph.style.animation = 'fadeIn 1s forwards';
+                paragraph.style.animation = 'none'; // Reiniciar animación
+                void paragraph.offsetWidth; // Forzar el reinicio de la animación
+                paragraph.style.animation = 'fadeIn 1s forwards'; // Reaplicar la animación
             }
         }
 
@@ -66,8 +68,9 @@
         <section class="content-section">
             <button onclick="showContent('MISSION')">MISSION</button>
             <button onclick="showContent('VISION')">VISION</button>
-            <div id="content"></div>
+            <div id="content" style="opacity: 0;"></div> <!-- El contenido comenzará invisible -->
         </section>
     </section>
 </body>
 </html>
+
